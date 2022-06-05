@@ -1,0 +1,40 @@
+:root{
+    --naranja:#db5f00;
+    --fondo: #0b1836;
+    --Purpura: #7515d1;
+}
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background: var(--fondo);
+    font-family: sans-serif;
+}
+.contenedor{
+    width: 90%;
+    margin: auto;
+}
+header{
+    padding: 30px 0; 
+}
+header .contenedor{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo{
+    font-family: lato;
+    font-weight: normal;
+    color: var(--naranja);
+}
+header nav a{
+    color: var(--Purpura);
+    text-decoration: none;
+    margin-right: 10px;
+}
+header nav a:hover,
+header nav a.activo{
+    color: #fff;
+}
