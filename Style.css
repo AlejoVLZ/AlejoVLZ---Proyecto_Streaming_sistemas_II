@@ -2,7 +2,7 @@
     --naranja:#f37718;
     --fondo: #0b1836;
     --Purpura: #7515d1;
-}
+} /* valores seteados*/
 * {
     margin: 0px;
     padding: 0px;
@@ -13,7 +13,7 @@ body{
     background: var(--fondo);
     font-family: sans-serif;
 }
-.navegacion{
+.navegacion{ /*barra de navegacion en el header*/
     height: 80px;
     background: rgb(4, 1, 29);
     align-items: center;
@@ -43,8 +43,8 @@ header nav a{
     text-decoration: none;
     margin-right: 10px;
 }
-header nav a:hover,
-header nav a.activo{
+header nav a:hover, /*funcion que hace que cambie de color los elementos de la barra*/
+header nav a.activo{ 
     color: #fff;
 }
 .contenido{
@@ -55,7 +55,7 @@ header nav a.activo{
     width: 100%;
     clear: both;
 }
-.principal{
+.principal{ /*hace que el contenido princiapal se mantenga a la izquierda*/
     
     float: left;
     width: 70%;
@@ -64,9 +64,9 @@ header nav a.activo{
 }
 .inventario{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3,1fr); /*disposicion del contenido*/
 }
-.item{
+.item{ /*clase para cada "item" de la pagina, ya sea pelicula o serie*/
     max-height: 300px;
     display: flex;
     margin: 10px;
@@ -79,13 +79,13 @@ header nav a.activo{
     overflow: hidden;
 }
 .item figure{
-    position: relative;
+    position: relative; /*para mantener la hubiacion relativa, para que los textos se hubiquen correctamente*/
 }
 .item figure:hover figcaption{
     display: block;
-    animation-duration: 1s;
+    animation-duration: 1s; /*funcion para que aparezca el nombre y descripcion de la pelicula al pasar el ratos por encima*/
 } 
-.item figure figcaption{
+.item figure figcaption{ /*setea los valores para que se realice bien el hover*/
     display: none;
     position: absolute;
     top: 0;
@@ -94,33 +94,78 @@ header nav a.activo{
     right: 0;
     background: rgba(0, 0, 0, 0.7);
 }
-.item h2{
+.item h2{ /*titulo de los items*/
     padding-top: 5px;
     text-align: center;
 }
-.item p{
+.item p{ /*descripcion de los items*/
     margin: 5px 7px;
     text-align: justify;
     color: var(--naranja);  
 }
-.item img{
+.item img{/*imagen de los items*/
     width: 100%;
     align-items: stretch;
 }
-.lateral{
+.lateral{ /*barra lateral*/
     background: red;
     float: right;
     width: 25%;
     padding: 10px;
     margin: 10px;
 }
-.pie{
+.pie{ /*pie de pagina*/
     clear: both;
     padding: 20px;
     text-align: center;
     color: #fff;
-    position: fixed;
     bottom: 0px;
     text-align: center;
     width: 100%;
+}
+.reproductor{  /* Aqui se va a construir el cuadro de reporductor de pelicuals*/
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: rgb(0, 0, 0) solid 1px;
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+}
+.playing{
+    font-size: 15px;
+    color: #7f18e0;
+    text-align: left;
+    padding: 10px;
+    padding-left: 10px;
+    background-color: rgb(4, 5, 49);
+    width: 100%;
+    height: 10%;
+}
+.player_box{
+    background-color: black;
+    width: 100%;
+    max-height: 100%;
+    min-height: 500px;
+}
+.player_menu{
+    width: 100%;
+    height: 50px;
+    background: rgb(102, 99, 134);
+    align-items: center;
+    padding: 0 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center ;
+}
+.player_menu ul{
+    width: inherit;
+    padding: 0 5%;
+    display: inherit;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.player_menu ul li{
+    list-style: none;
+    font-family: sans-serif;
 }
