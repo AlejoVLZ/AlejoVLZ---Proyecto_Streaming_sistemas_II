@@ -202,3 +202,22 @@ header nav a.activo{
     text-align: justify;
     font-family: sans-serif;
 }
+.info{
+    margin: auto;
+    margin-top: 20px;
+    width: 70%;   
+}
+.info h2{
+    color: #f37718;
+}   
+.contenedorinfo{
+    margin-top: 10px;
+    background-color: black;
+    border-radius: 20px;
+}
+.info p{
+    color: #fff;
+    line-height: 25px;
+    padding: 20px;
+    text-align: justify;
+}
