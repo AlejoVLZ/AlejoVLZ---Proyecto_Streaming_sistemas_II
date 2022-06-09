@@ -27,18 +27,12 @@ header{
     padding: 0; 
     margin-top: 0;
 }
-header .contenedor{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-}
-header .logo{
+header .logo{ /* aqui se edita las propiedades del nombre de la pgina que aparece en la esquina superior izquierda */
     font-family: lato;
     font-weight: normal;
     color: var(--naranja);
 }
-header nav a{
+header nav a{ /*links de la nav del header*/
     color: var(--Purpura);
     text-decoration: none;
     margin-right: 10px;
@@ -62,7 +56,7 @@ header nav a.activo{
     margin: 10px;
     padding: 10px;
 }
-.inventario{
+.inventario{ /*estructura del contenido del "home"*/
     display: grid;
     grid-template-columns: repeat(3,1fr); /*disposicion del contenido*/
 }
@@ -136,7 +130,7 @@ header nav a.activo{
     margin: auto;
     margin-top: 50px;
 }
-.playing{
+.playing{ /*caja del reproductor en la pagina "pelicula"*/
     border-radius: 10px 10px 0 0;
     font-size: 15px;
     color: rgba(255, 255, 255, 0.781);
@@ -148,16 +142,16 @@ header nav a.activo{
     height: 10%;
     font-family: sans-serif;
 }
-.playing h2{
+.playing h2{ /*titulo de lo que se reproduce*/
     font-family: sans-serif;
 }
-.player_box{
+.player_box{ /*caja de reproduccion*/
     background-color: black;
     width: 100%;
     max-height: 100%;
     min-height: 500px;
 }
-.player_menu{
+.player_menu{ /*menu de reproduccioc*/
     width: 100%;
     height: 50px;
     background: rgb(102, 99, 134);
@@ -179,7 +173,7 @@ header nav a.activo{
     list-style: none;
     font-family: sans-serif;
 }
-.player_bot{
+.player_bot{ /*zona inferior posterior del reproductor*/
     margin-top: 20px;
     align-items: center;
     display: flex;
@@ -187,7 +181,7 @@ header nav a.activo{
     flex-wrap: wrap;
     margin: 20px 25%;
 }
-#img_descp{
+#img_descp{ /*imagen o poster relacionado al contenido que se encuentra en el player bot*/
     width: 75%;
 }
 .player_bot #titulo{
@@ -202,27 +196,27 @@ header nav a.activo{
     text-align: justify;
     font-family: sans-serif;
 }
-.info{
+.info{ /* cuadro que maneja la informacion en el about */
     margin: auto;
     margin-top: 20px;
     width: 70%;   
 }
-.info h2{
+.info h2{ /*sbutitulo de la seccion*/
     color: #f37718;
 }   
-.contenedorinfo{
+.contenedorinfo{ /*contenedor de informacion del about*/
     margin-top: 10px;
     background-color: black;
     border-radius: 20px;
     padding: 5px;
 }
-.info p{
+.info p{ /*texto en el about*/
     color: #fff;
     line-height: 25px;
     padding: 5px;
     text-align: justify;
 }
-.FAQ h1{
+.FAQ h1{ /*titulo en el FAQ*/
     color: #7f18e0;
     margin-top: 20px;
     text-align: center;
@@ -230,7 +224,7 @@ header nav a.activo{
     border-bottom: #f37718 solid 5px;
     padding-bottom: 10px;
 }
-.question {
+.question { /*estructura de pregunta en el FAQ*/
     display: flex;
     flex-direction: row;
     background-color: rgba(255, 255, 255, 0.205);
@@ -250,7 +244,7 @@ header nav a.activo{
     margin-top: 40px;
     margin-left: 5px;
 }
-.answer{
+.answer{ /*estructura de respuesta en el FAQ*/
     background-color: rgba(243, 207, 6, 0.123);
     border-radius: 50px 0 0 50px;
     margin-left: 30px;
@@ -263,7 +257,7 @@ header nav a.activo{
     color: #fff;
     text-align: justify;
 }
-.cajalista{
+.cajalista{ /*lista de reproduccion disponible en la pagina "detalles"*/
     background-color: rgb(153, 151, 151);
     display: list-item;
     width: 100%;
