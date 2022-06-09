@@ -221,3 +221,44 @@ header nav a.activo{
     padding: 20px;
     text-align: justify;
 }
+.FAQ h1{
+    color: #7f18e0;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 500%;
+    border-bottom: #f37718 solid 5px;
+    padding-bottom: 10px;
+}
+.question {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(255, 255, 255, 0.205);
+    margin-left: 30px;
+    margin-top: 50px;
+    height: 70px;
+    border-radius: 50px 0 0 50px;
+}
+.question h2{
+    align-items: center;
+    color: #f37718;
+    font-size: 60px;
+    margin-left: 20px;
+}
+.question p{
+    align-items: center;
+    margin-top: 40px;
+    margin-left: 5px;
+}
+.answer{
+    background-color: rgba(243, 207, 6, 0.123);
+    border-radius: 50px 0 0 50px;
+    margin-left: 30px;
+    min-height: 70px;
+    max-height: 210px
+}
+.answer p{
+    line-height: 25px;
+    padding: 20px 20px;
+    color: #fff;
+    text-align: justify;
+}
