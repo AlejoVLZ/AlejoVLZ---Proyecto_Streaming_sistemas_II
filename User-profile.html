@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <title>Perfil</title>
+</head>
+<body>
+    
+    <header>  <!-- Este es el header de mi pagina y su barra de navegacion-->
+        <div class="navegacion">
+        <h2 class="logo">lumioustream</h2>
+        <nav>
+            <a class="activo" href="#">Inicio</a>
+            <a href="#">Peliculas</a>
+            <a href="#">Series</a>
+            <a href="#">Categorias</a>        
+        </nav>
+        <input type="text" placeholder="Buscar">
+        <div id="usermenu"> <!--aqui se inyecta el nombre del usuario-->
+            <a href="google.com" id="usname"></a>
+                <ul class="colapsable">
+                    <a href="https://ww1.cuevana3.me/">Cuenta</a>
+                    <a href="https://ww1.cuevana3.me/">Perzonalizar cuenta</a>
+                    <a href="https://ww1.cuevana3.me/">Cerrar sesión</a>
+                </ul>
+        </div>
+        </div>
+    </header>
+
+    <main class="profile-main">
+    <div class="profile-box">
+        <div class="head-user">
+            <div class="icon-name">
+                <img id="profile-icon" src="img/user-profile-svgrepo-com.svg" alt="">
+                <p id="user-name"></p>
+            </div>
+        </div>
+        <div>
+            <ul id="user-profilenav">
+                <a href=""> Vistos recientemente </a>
+                <a href=""> Ver mas tarde </a> 
+                <a href=""> Lista de reproducción </a> 
+                <a href=""> Recomendaciones</a> 
+        </div>
+        <div id="empty-icon">
+            <img src="img/movie-png-icon-27.jpg" alt=""> <br>
+            <p>Uups, pareceque no hay nada!</p>
+        </div>
+        
+    </div>
+    </main>
+    
+    <footer class="pie">
+        <p>Luminous @TM. Junio 2022. Todos los derechos reservados</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
