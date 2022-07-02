@@ -7,12 +7,28 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    position: relative;
 }
-body{
+html {
+  min-height: 100%;
+  position: relative;}
+  body{
+
     background: var(--fondo);
     font-family: sans-serif;
+    margin: 0;
+    margin-bottom: 40px;
 }
+footer{
+    position: absolute;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    bottom: 0;
+    background-color: rgba(0, 255, 255, 0.247);
+    border-radius: 25px 25px 0 0 ;
+}
+
 .navegacion{ /*barra de navegacion en el header*/
     height: 80px;
     background: var(--Purpura);
@@ -56,12 +72,8 @@ header nav a.activo{
     color: #fff;
 }
 .contenido{
-    display: grid;
-    align-items: center;
-    flex-wrap: wrap;
-    display: inline;
+
     width: 100%;
-    clear: both;
 }
 .principal{ /*hace que el contenido princiapal se mantenga a la izquierda*/
     
@@ -116,15 +128,16 @@ header nav a.activo{
     align-items: stretch;
 }
 .lateral{ /*barra lateral*/
-    background: var(--naranja);
-    position: absolute;
+    background: var(--Purpura);
+    float: right;
     right: 0px;
     top: 2rem;
     width: 25%;
     padding: 10px;
     margin: 10px;
     border-radius: 1rem;
-    padding: 1re;
+    padding: 1rem;
+    color: white;
 }
 .lateral p{
     text-align: justify;
@@ -132,11 +145,12 @@ header nav a.activo{
     font-size: large;
 }
 #l1 {
+    color: black;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     text-align: center;
-    background: #2b58c0;
+    background: var(--naranja);
     border-radius: 1rem;
 }
 #l1 p{
@@ -152,24 +166,11 @@ header nav a.activo{
     color: white;
     font-size: 1.25rem;
 }
-.pie{ /*pie de pagina*/
-    clear: both;
-    padding: 20px;
-    text-align: center;
-    color: #fff;
-    bottom: 0px;
-    text-align: center;
-    width: 100%;
-    margin-top: 20px;
-    background-color: rgba(0, 255, 255, 0.247);
-    border-radius: 25px 25px 0 0 ;
-}
 .reproductor{  /* Aqui se va a construir el cuadro de reporductor de pelicuals*/
     border-radius: 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    border: rgba(250, 250, 250, 0.7) solid 2px;
     width: 70%;
     margin: auto;
     margin-top: 50px;
@@ -187,7 +188,8 @@ header nav a.activo{
     font-family: sans-serif;
 }
 .playing h2{ /*titulo de lo que se reproduce*/
-    font-family: sans-serif;
+    font-family: lato;
+    font-weight: 500;
 }
 .player_box{ /*caja de reproduccion*/
     background-color: black;
@@ -198,7 +200,7 @@ header nav a.activo{
 .player_menu{ /*menu de reproduccioc*/
     width: 100%;
     height: 50px;
-    background: rgb(102, 99, 134);
+    background: var(--Purpura);
     align-items: center;
     padding: 0 5%;
     display: flex;
@@ -214,6 +216,7 @@ header nav a.activo{
     flex-wrap: wrap;
 }
 .player_menu ul li{
+    color: var(--naranja);
     list-style: none;
     font-family: sans-serif;
 }
@@ -250,7 +253,7 @@ header nav a.activo{
 }   
 .contenedorinfo{ /*contenedor de informacion del about*/
     margin-top: 10px;
-    background-color: black;
+    background-color: rgba(255, 255, 255, 0.205);
     border-radius: 20px;
     padding: 5px;
 }
@@ -302,7 +305,8 @@ header nav a.activo{
     text-align: justify;
 }
 .cajalista{ /*lista de reproduccion disponible en la pagina "detalles"*/
-    background-color: rgb(153, 151, 151);
+    background-color: var(--Purpura);
+    color: #00c6cf;
     display: list-item;
     width: 100%;
 }
@@ -556,3 +560,42 @@ header nav a.activo{
     color: #00c6cf;
 }
 /* Aqui empieza la configuracion de el usuario  */
+.config{
+    padding-top: 3rem;
+    width: 60%;
+    margin: 0 auto;
+    color: white;
+    font-family: lato;
+
+}
+.config h2{
+    font-size: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+.config-form{
+    border-bottom: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.config-form input{
+    width: 30%;
+    padding: 0.40rem;
+    border-radius: 1rem;
+    border: none;
+    margin: 1rem 0;
+}
+#buttonimg{
+    border-top: white solid 1px;
+    padding-top: 0.75rem;
+}
+.avatar-icon{
+    text-align: center;
+}
+.avatar-icon img{
+    width: 8rem;
+    background-color: #fff;
+    border-radius: 100%;
+    padding: 0.20rem;
+}
