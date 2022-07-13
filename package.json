@@ -1,0 +1,26 @@
+{
+  "name": "alejovlz---proyecto_streaming_sistemas_ii",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlejoVLZ/AlejoVLZ---Proyecto_Streaming_sistemas_II.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlejoVLZ/AlejoVLZ---Proyecto_Streaming_sistemas_II/issues"
+  },
+  "homepage": "https://github.com/AlejoVLZ/AlejoVLZ---Proyecto_Streaming_sistemas_II#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}
