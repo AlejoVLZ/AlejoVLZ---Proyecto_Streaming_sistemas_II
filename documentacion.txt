@@ -1,0 +1,618 @@
+la pagina principal contiene un header basico que contien multiples opciones con un estilo en css, al pasar el raton sobre el menu cambia de color con un hoover
+HTML
+<header>  <!-- Este es el header de mi pagina y su barra de navegacion-->
+        <div class="navegacion">
+        <h2 class="logo">lumioustream</h2>
+        <nav>
+            <a class="activo" href="#">Inicio</a>
+            <a href="#">Peliculas</a>
+            <a href="#">Series</a>
+            <a href="#">Categorias</a>        
+        </nav>
+        <input type="text" placeholder="Buscar">
+        <a id="iniciarsesion" href="Login.html">Iniciar sesión</a>
+        </div>
+    </header>
+
+CSS
+.navegacion{ /*barra de navegacion en el header*/
+    height: 80px;
+    background: var(--Purpura);
+    align-items: center;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center ;
+}
+header{
+    padding: 0; 
+    margin-top: 0;
+}
+header .logo{ /* aqui se edita las propiedades del nombre de la pgina que aparece en la esquina superior izquierda */
+    font-family: lato;
+    font-weight: normal;
+    color: var(--naranja);
+}
+header nav a{ /*links de la nav del header*/
+    color: var(--naranja);
+    text-decoration: none;
+    margin-right: 10px;
+}
+header input{
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    padding: 0.75rem;
+}
+#iniciarsesion{
+    background-color: #4a4aee;
+    border-radius: 2rem;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+header nav a:hover, /*funcion que hace que cambie de color los elementos de la barra*/
+header nav a.activo{ 
+    color: #fff;
+}
+
+
+
+
+la seccion principal del index son 2 divs que flotan a cada lado,
+el de la derecha es un simple aside con algunos cuadros e hipervilculos
+HTML
+<aside>
+                    <div class="lateral"> <!--barra lateral-->
+                        <p>
+                            Disfruta de la mejor experiencia de streming!!!
+                        </p>
+                        <div id="l1">
+                            <p>Ultimos estrenos:</p>
+                            
+                                <a href="">interstellar</a>
+                                <a href="">interstellar</a>
+                                <a href="">interstellar</a>
+                                <a href="">interstellar</a>
+                            
+                        </div>
+                    </div>
+                </aside>
+
+la seccion principal de contenido se compone de una grilla que se crea segun se vayan cargando datos desde la api , generandose en el div "inventario", ademas de que al pasar el mouse 
+encima de la imagen de la pelicula se opaca la portada y muestra la descripcion
+HTML
+<section class="contenido"> <!-- aqui se agrupa el sidebar y el contenido principal -->
+            <div class="principal"> <!-- aqui se genera una capa para dar posicion relativa a la lista de inventario -->
+                <div class="inventario"> <!-- esta es la clase que encierra al inventacio -->
+
+CSS
+.contenido{
+
+    width: 100%;
+}
+.principal{ /*hace que el contenido princiapal se mantenga a la izquierda*/
+    
+    float: left;
+    width: 70%;
+    margin: 10px;
+    padding: 10px;
+}
+.inventario{ /*estructura del contenido del "home"*/
+    display: grid;
+    grid-template-columns: repeat(3,1fr); /*disposicion del contenido*/
+}
+.inventario article{
+    max-height: 300px;
+    display: flex;
+    margin: 10px;
+    color: #fff;
+    padding: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+    border-radius: 1em;
+    flex-direction: column;
+    background-color: black;
+    overflow: hidden;
+}
+.inventario article figure{
+    position: relative;
+}
+.inventario article figure:hover figcaption{
+    display: block;
+    animation-duration: 1s;                               ////// en estas lineas de aqui en donde se configura para que solo se vea la portada y al pasar
+							///el raton se vea el nombre de la peliculas
+}
+.inventario article figure figcaption{
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+.inventario article figure img{
+    width: 100%;
+    align-items: stretch;
+ }
+ .inventario article figure p{
+    margin: 5px 7px;
+    text-align: justify;
+    color: var(--naranja);  
+ }
+ .inventario article figure h2{
+    padding-top: 5px;
+    text-align: center;
+ }
+.item{ /*clase para cada "item" de la pagina, ya sea pelicula o serie*/
+    max-height: 300px;
+    display: flex;
+    margin: 10px;
+    color: #fff;
+    padding: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+    border-radius: 1em;
+    flex-direction: column;
+    background-color: black;
+    overflow: hidden;
+}
+.item figure{
+    position: relative; /*para mantener la hubiacion relativa, para que los textos se hubiquen correctamente*/
+}
+.item figure:hover figcaption{
+    display: block;
+    animation-duration: 1s; /*funcion para que aparezca el nombre y descripcion de la pelicula al pasar el ratos por encima*/
+} 
+.item figure figcaption{ /*setea los valores para que se realice bien el hover*/
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+.item h2{ /*titulo de los items*/
+    padding-top: 5px;
+    text-align: center;
+}
+.item p{ /*descripcion de los items*/
+    margin: 5px 7px;
+    text-align: justify;
+    color: var(--naranja);  
+}
+.item img{/*imagen de los items*/
+    width: 100%;
+    align-items: stretch;
+}
+
+JAVASCRIPT
+const info = document.querySelector('.info');
+
+function cargardetallespeliculas() {
+    fetch('http://localhost:3000/peliculas')
+        .then(respuesta => respuesta.json()) //Indicamos el formato en que se desea obtener la información
+        .then(pelicula => {
+            pelicula.forEach(pelicula => {
+                const article = document.createElement('article');
+                article.innerHTML += `
+                <table> 
+                <tbody>
+                    <tr>
+                        <td> 
+                            <img src="" alt="poster" id="img_descp">
+                               
+                        </td>
+                        <td> 
+                            <h2></h2>                                                    
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>              
+                `;
+                inventario.appendChild(article);
+
+            });
+        }) // Aquí mostramos dicha información
+        .catch(error => console.log('Hubo un error : ' + error.message))
+}
+
+
+en la pagina de details se constrillo una tabla para separar la descripcion de el poster de la pelicula
+HTML
+<section class="info">
+            <table> <!--uso de la table para ayudarme a agrupary organizar el contenido-->
+                <tbody>
+                    <tr>
+                        <td> <!--poster del contenido-->
+                            <img src="https://www.themoviedb.org/t/p/original/nrSaXF39nDfAAeLKksRCyvSzI2a.jpg" alt="InterStellar_poster" id="img_descp">
+                               
+                        </td>
+                        <td> <!--informacion del contenido-->
+                            <h2 id="titulo">InterStellar</h2>                                                    
+                            <p id="texto">Narra las aventuras de un grupo de exploradores que hacen uso de un agujero de gusano recientemente descubierto para superar las limitaciones de los viajes espaciales tripulados y vencer las inmensas distancias que tiene un viaje interestelar.</p>
+                            <p>Fecha de salida:</p>
+                            <p>Elenco:</p>
+                            <p>Director:</p>
+                            <p>Rating:</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+CSS
+.info{ /* cuadro que maneja la informacion en el about */
+    margin: auto;
+    margin-top: 20px;
+    width: 70%;   
+}
+.info h2{ /*sbutitulo de la seccion*/
+    color: #f37718;
+}   
+.contenedorinfo{ /*contenedor de informacion del about*/
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.205);
+    border-radius: 20px;
+    padding: 5px;
+}
+.info p{ /*texto en el about*/
+    color: #fff;
+    line-height: 25px;
+    padding: 5px;
+    text-align: justify;
+}
+
+y en la parte inferior de la descripcion tambien hay una lista de reproduccion que aprovecha clases de css utilizadas en la creacion de la pagina "reproductor"
+
+en la pagina de reproductor hay un cuandro con pseudobotones aun no funcionlaes que solo son meramente decorativos (en esta fase)
+HTML
+div class="reproductor"> <!-- esta sera para el espacio del reproductor -->
+        <div class="playing"> <!-- titulo de lo que se esta reproduciendo -->
+            <h2>Pelicula en reproduccion</h2>
+        </div>
+        <div class="player_box">esto es lo que se va a reproducir</div> <!-- aqui iria los links o enlaces para el contenido a reproducir -->
+
+            <nav class="player_menu"> <!-- este es el menu de reproduccion -->
+                <ul>
+                <li class="play_buttom">Play/Stop</li>
+                <li class="previus_buttom">Anterior</li>
+                <li class="next_buttom">siguiente</li>
+                <li class="volumen_scroll">volumen</li>
+                <li class="timer">01:03:23/00:01:00</li>
+                <li class="full_screen">pantallacompleta</li>
+            </ul>
+        </nav>
+    </div>
+CSS
+.reproductor{  /* Aqui se va a construir el cuadro de reporductor de pelicuals*/
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+}
+.playing{ /*caja del reproductor en la pagina "pelicula"*/
+    border-radius: 10px 10px 0 0;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.781);
+    text-align: left;
+    padding: 10px;
+    padding-left: 10px;
+    background-color: rgba(140, 0, 255, 0.363);
+    width: 100%;
+    height: 10%;
+    font-family: sans-serif;
+}
+.playing h2{ /*titulo de lo que se reproduce*/
+    font-family: lato;
+    font-weight: 500;
+}
+.player_box{ /*caja de reproduccion*/
+    background-color: black;
+    width: 100%;
+    max-height: 100%;
+    min-height: 500px;
+}
+.player_menu{ /*menu de reproduccioc*/
+    width: 100%;
+    height: 50px;
+    background: var(--Purpura);
+    align-items: center;
+    padding: 0 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center ;
+    border-radius: 0 0 10px 10px;
+}
+.player_menu ul{
+    width: inherit;
+    padding: 0 5%;
+    display: inherit;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.player_menu ul li{
+    color: var(--naranja);
+    list-style: none;
+    font-family: sans-serif;
+}
+.player_bot{ /*zona inferior posterior del reproductor*/
+    margin-top: 20px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px 25%;
+}
+#img_descp{ /*imagen o poster relacionado al contenido que se encuentra en el player bot*/
+    width: 75%;
+}
+.player_bot #titulo{
+    color: #7f18e0;
+    text-align: center;
+    font-family: sans-serif;
+}
+.player_bot #texto{
+    line-height: 25px;
+    margin-top: 10px;
+    color: #fff;
+    text-align: justify;
+    font-family: sans-serif;
+}
+
+En el apartadi del login nos encontramos con una pagina que hace de inicio de sesion y registro, esta cambia al presionar un boton segun se la necesidad, esta para realizar este cambio trabaja con
+css y javascript
+HTML
+   
+<div id="login">
+    <div class="container-form sign-up">
+        <div class="welcome-back">
+            <div class="message">
+                <h2>Bienvenido a Luminoustream</h2>
+                <p>Si ya tienes una cuenta por favor inicia sesion aqui</p>
+                <button class="sign-up-btn">Iniciar Sesion</button>
+            </div>
+        </div>
+        <form class="formulario" id="registro">
+            <h2 class="create-account">Crear una cuenta</h2>
+            <p class="cuenta-gratis">Crear una cuenta gratis</p>
+            <input type="text" placeholder="Nombre" id="usuario">
+            <input type="email" placeholder="Email" id="correo">
+            <input type="password" placeholder="Contraseña" id="clave">
+            <input type="button" value="Registrarse" id="botonRegistrar">
+        </form>
+    </div>
+    <div class="container-form sign-in">
+        <form class="formulario">
+            <h2 class="create-account">Iniciar Sesion</h2>
+            <p class="cuenta-gratis">¿Aun no tienes una cuenta?</p>
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Contraseña">
+            <input type="button" value="Iniciar Sesion">
+        </form>
+        <div class="welcome-back">
+            <div class="message">
+                <h2>Bienvenido de nuevo</h2>
+                <p>Si aun no tienes una cuenta por favor registrese aqui</p>
+                <button class="sign-in-btn">Registrarse</button>
+            </div>
+        </div>
+    </div>
+</div>
+CSS/*seccion del login*/
+#login{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(img/3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+.container-form {
+    width: 90%;
+    height: 90vh;
+    display: flex;
+    justify-content: space-around;
+    transition:  all .5s ease-out;
+}
+
+.welcome-back {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.message {
+    padding: 1rem;
+}
+
+.message h2 {
+    font-size: 1.7rem;
+    padding: 1rem 0;
+}
+
+.message button {
+    padding: 1rem;
+    font-weight: 400;
+    background-color: #4a4aee;
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: .9rem;
+    margin-top: 2rem;
+    transition: all .3s ease-in;
+    color: #fff;
+}
+
+.message button:hover {
+    background-color: var(--Purpura);
+}
+
+.formulario {
+    width: 400px;
+    padding: 1rem;
+    margin: 2rem;
+    background-color: rgb(51, 51, 51, 0.602);
+    text-align: center;
+}
+
+.create-account {
+    padding: 2.7rem 0;
+    font-size: 1.7rem;
+}
+
+.iconos {
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.border-icon {
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border: solid thin white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: all .3s ease-in;
+}
+
+.border-icon:hover {
+    background-color: var(--Purpura);
+    cursor: pointer;
+}
+
+.cuenta-gratis {
+    padding: 2rem 0;
+}
+
+.formulario input {
+    width: 70%;
+    display: block;
+    margin: auto;
+    margin-bottom: 2rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: white thin solid;
+    text-align: center;
+    outline: none;
+    padding: .2rem 0;
+    font-size: .9rem;
+    color: white;
+}
+
+.formulario input[type="button"] {
+    width: 60%;
+    margin: auto;
+    border: solid thin white;
+    padding: .7rem;
+    border-radius: 2rem;
+    background-color: white;
+    font-weight: 600;
+    margin-top: 3rem;
+    font-size: .8rem;
+    cursor: pointer;
+    color: #222;
+}
+
+.sign-in {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sign-in.active {			////en esta zona de aqui se busca que los 2 formularios se superpongan y que uno se mantenga escondido hasta que se pulsa un boton
+    opacity: 1;
+    visibility: visible;
+}
+
+.sign-up.active {
+    opacity: 0;
+    visibility: hidden;
+}
+
+JS
+const $btnSignIn= document.querySelector('.sign-in-btn'),
+      $btnSignUp = document.querySelector('.sign-up-btn'),  
+      $signUp = document.querySelector('.sign-up'),
+      $signIn  = document.querySelector('.sign-in');
+
+document.addEventListener('click', e => {
+    if (e.target === $btnSignIn || e.target === $btnSignUp) { //// este es el comando de js que hace cambiar la visibilidad de los formularios
+        $signIn.classList.toggle('active');
+        $signUp.classList.toggle('active')
+    }
+});
+
+para conseguir el efecto en FAQ se usaron varios div para segmetar la unidad de pregunta-respuesta y darle colores diferentes
+HTML
+<section class="FAQ"> <!--seccion que engloba todo el contenido-->
+        <h2>Preguntas frecuentes</h2> <!--titulo de la seccion-->
+        <div class="Q&A"> <!--aqui se agrupa preguntas&respuestas-->
+            <div class="question"> <!--estas son las preguntas-->
+                <h2>Q.</h2>
+                <p> ¿porque los hombres viven menos?</p>
+            </div>
+            <div class="answer"> <!--estas son las respuestas-->
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere expedita accusantium, ullam suscipit nihil officia dolor perspiciatis quibusdam magni maiores quisquam necessitatibus repellat eveniet libero blanditiis incidunt ipsa ducimus in! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio, molestiae sunt dolore ex quod, eum recusandae tenetur porro, dolorum minus obcaecati sed voluptas quaerat corrupti deserunt harum id adipisci sint?</p>
+            </div>
+        </div>
+
+
+en el package.json nos encontramos con el comando iniciador de la api :
+"scripts": {
+    "server": "json-server --watch ./db/db.json "
+  }
+este permite que se pueda acceder a la api
+
+
+
+a traves de la api se puede ejecutar la funcion ubicada en el archivo server.js que permite mostrar las peliculas en el index y home, este es:
+
+function cargarpeliculas() {
+    fetch('http://localhost:3000/peliculas')
+        .then(respuesta => respuesta.json()) //Indicamos el formato en que se desea obtener la información
+        .then(pelicula => {
+            pelicula.forEach(pelicula => {
+                const article = document.createElement('article');
+                article.innerHTML += `
+                <figure>
+                            <img src="${pelicula.poster}" alt="poster">
+                            <figcaption>
+                                <h2>${pelicula.nombre}</h2>                                                    
+                                <p>${pelicula.description}</p>
+                            </figcaption>
+                        <figure>                  
+                `;
+                inventario.appendChild(article);
+
+            });
+        }) // Aquí mostramos dicha información
+        .catch(error => console.log('Hubo un error : ' + error.message))
+}
+
+cargarpeliculas();
+
+lo que se hace es crear una funcion que realiza una coneccion con la appi buscando un arreglo en especifico, luego se le indica que recibira un archivo json y se procede
+a crear un ciclo que generara estructuras dento de la clase "inventario" para poder mostrar todas la peliculas
+
