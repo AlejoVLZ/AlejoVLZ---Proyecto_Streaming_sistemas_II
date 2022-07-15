@@ -86,6 +86,47 @@ header nav a.activo{
     display: grid;
     grid-template-columns: repeat(3,1fr); /*disposicion del contenido*/
 }
+.inventario article{
+    max-height: 300px;
+    display: flex;
+    margin: 10px;
+    color: #fff;
+    padding: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+    border-radius: 1em;
+    flex-direction: column;
+    background-color: black;
+    overflow: hidden;
+}
+.inventario article figure{
+    position: relative;
+}
+.inventario article figure:hover figcaption{
+    display: block;
+    animation-duration: 1s;
+}
+.inventario article figure figcaption{
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+.inventario article figure img{
+    width: 100%;
+    align-items: stretch;
+ }
+ .inventario article figure p{
+    margin: 5px 7px;
+    text-align: justify;
+    color: var(--naranja);  
+ }
+ .inventario article figure h2{
+    padding-top: 5px;
+    text-align: center;
+ }
 .item{ /*clase para cada "item" de la pagina, ya sea pelicula o serie*/
     max-height: 300px;
     display: flex;

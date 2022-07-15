@@ -1,0 +1,25 @@
+Hola !!, este es el manual de usuario
+
+lo primero que te encontraras sera la pagina principal, en la parte superior izquierda esta el nombre de la página, a su izquiera un 
+menú de navegación para ver por categorias, a la izquierda de este mismo una barra de busqueda, y al final un boton que te llevara al inicio de sesión
+en la parte principal te encontraras con un catalogo de peliculas, y a su derecha unas recomendaciones en un side bar, al final de la pagina se encuentra 
+el pie de pagina, que te llevara a about us y faq
+
+al clikear sobre una pelicula te deberia de llevar a una pagina que contiene la descripcion de la misma y su lista de reproduccion, desde la cual
+puedes clikear para poder abrir otra pagina que te lleve al reproductor, este contiene un menu basico de reproduccion que consta 
+de pausa, tiempo de la pelicua, siguiente, anterior y pantalla completa, y mas abajo otra pequeña descripcion de la pelicula en reproduccion
+
+al ir a la pagina FAQ y About te encontraras con informacion para responder tus dudas o saber mas sobre nosotros
+
+al clikear en el boton de registro de sesion te encontras con un formulario a tu derecha, este te permitira generar un nuevo usuario
+y al clikear en el boton morado a tu izquiera aparecera un formulario de inicio de sesion
+
+al iniciar sesion iras a la pagina principal, en donde en la parte superior derecha podras er tu nombre, al pasar 
+el mouse encima podras ver las opciones, "cuenta","personalizar cuenta" y "cerrar sesion",
+la primera te dejara ver tu cuenta, la seguna te dejara editar tu informacion y la tercera cierrara tu secion
+
+dentro de tu perfil podras ver tus peliculas favoritas y listas de reproduccion
+
+al editar tu perfil podras cambiar tus datos ingresado a la hora del registro.
+
+eso es todo!
